@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wisata Kampung Paray</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<!-- Tambahkan class wisata-page ke body utama -->
+<body class="wisata-page">
+
+  <!-- ======= NAVBAR ======= -->
+  <header class="navbar">
+    <h1>Kampung Paray</h1>
+    <ul class="nav-menu">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil Kampung</a></li>
+      <li><a href="monografi.html">Peta</a></li>
+      <li><a href="wisata.html" class="active">Wisata</a></li>
+      <li><a href="galeri.html">Galeri</a></li>
+      <!-- <li><a href="berita.html">Berita</a></li> -->
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+  </header>
+
+  <!-- ======= MAIN CONTENT ======= -->
+  <main class="page-section">
+    <h2>Wisata Kampung Paray</h2>
+    <p>Kampung Paray memiliki beberapa tempat menarik yang bisa dimasukkan ke daftar lokasi yang ingin dikunjungi ketika berada di Kampung Paray</p>
+
+    <div class="wisata-gallery">
+      <!-- Wisata Cards -->
+      <div class="wisata-card reveal">
+        <img src="images/taman wairuri.jpeg" alt="Tamanwairuri">
+        <div class="info">
+          <h3>Taman Wairuri</h3>
+          <p>Pantai berpasir putih yang menawan, cocok untuk berenang dan menikmati matahari terbenam.</p>
+          <a href="https://maps.app.goo.gl/HzHXXopA8Ttqv8x26">📌Taman Waiuri</a>
+        </div>
+      </div>
+      
+      <div class="wisata-card reveal">
+        <img src="images/monumen tugu katalina.jpeg" alt="Monumen Tugu Pesawat Katalina">
+        <div class="info">
+          <h3>Monumen Tugu Pesawat Katalina</h3>
+          <p>Monumen Tugu Pesawat Catalina di Biak merupakan monumen yang dibangun untuk mengenang pertempuran Perang Dunia II di Biak, khususnya pesawat amfibi PBY Catalina yang jatuh di perairan Biak</p>
+          <a href="https://maps.app.goo.gl/85qwqpKuEp5qxBKn6">📌Monumen Tugu Pesawat Katalina</a>
+        </div>
+      </div>
+
+      <!-- <div class="wisata-card reveal">
+        <img src="images/Biak 2.jpeg" alt="Hutan Mangrove">
+        <div class="info">
+          <h3>Hutan Mangrove</h3>
+          <p>Eksplorasi hutan bakau yang kaya dengan keanekaragaman hayati dan jalur kayu yang asri.</p>
+        </div>
+      </div>
+
+      <div class="wisata-card reveal">
+        <img src="images/biak.jpg" alt="Air Terjun Dernafi">
+        <div class="info">
+          <h3>Air Terjun Dernafi</h3>
+          <p>Air terjun alami yang tersembunyi, menyajikan suasana damai di tengah alam.</p>
+        </div>
+      </div>
+
+      <div class="wisata-card reveal">
+        <img src="images/Biak 2.jpeg" alt="Bukit Pelangi">
+        <div class="info">
+          <h3>Bukit Pelangi</h3>
+          <p>Tempat sempurna untuk melihat matahari terbit dan panorama hijau yang menyegarkan.</p>
+        </div>
+      </div>
+
+      <div class="wisata-card reveal">
+        <img src="images/biak5.jpg" alt="Danau Sakral">
+        <div class="info">
+          <h3>Danau Sakral</h3>
+          <p>Danau yang tenang dan damai, menyimpan cerita mistis serta cocok untuk meditasi.</p>
+        </div>
+      </div>
+
+      <div class="wisata-card reveal">
+        <img src="images/biak4.jpg" alt="Taman Laut Dernafi">
+        <div class="info">
+          <h3>Taman Laut Dernafi</h3>
+          <p>Surga bawah laut dengan terumbu karang berwarna-warni dan berbagai spesies ikan eksotis.</p>
+        </div>
+      </div>
+
+      <div class="wisata-card reveal">
+        <img src="images/biak.jpg" alt="Kampung Budaya">
+        <div class="info">
+          <h3>Kampung Budaya</h3>
+          <p>Destinasi budaya yang menyajikan tarian tradisional, rumah adat, dan kerajinan tangan lokal.</p>
+        </div>
+      </div> -->
+    </div>
+  </main>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    &copy; 2025 Kampung Paray. Semua Hak Dilindungi.
+  </footer>
+
+  <!-- ======= SCROLL ANIMATION SCRIPT ======= -->
+  <script>
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.reveal').forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+  <!-- JavaScript tambahan (jika ada efek khusus di wisata.js) -->
+  <script src="wisata.js"></script>
+
+
+<!-- Animations by ChatGPT: fade-in navigation + scroll reveal -->
+<script>
+(function() {
+  // Add scroll-reveal to common text elements for natural appearance
+  var selector = 'h1,h2,h3,h4,h5,h6,p,li,blockquote,figcaption,.card-title,.card-text';
+  document.querySelectorAll(selector).forEach(function(el){
+    if(!el.classList.contains('scroll-reveal')) el.classList.add('scroll-reveal');
+  });
+
+  // IntersectionObserver for scroll reveal
+  var observer = new IntersectionObserver(function(entries, obs){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.scroll-reveal').forEach(function(el){ observer.observe(el); });
+
+  // Fade-out on internal link navigation
+  function isInternal(a){
+    try { return a.host === window.location.host; } catch(e){ return false; }
+  }
+
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a');
+    if(!a) return;
+    var href = a.getAttribute('href');
+    if(!href || href[0] === '#' || a.target === '_blank' || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+    if(!isInternal(a)) return;
+    e.preventDefault();
+    document.body.classList.add('fade-out');
+    setTimeout(function(){ window.location.href = href; }, 300);
+  }, true);
+
+  // Handle back/forward cache so page fades in correctly
+  window.addEventListener('pageshow', function(e){
+    if(e.persisted){ document.body.classList.remove('fade-out'); }
+  });
+})();
+</script>
+
+</body>
+</html>

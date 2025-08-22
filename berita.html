@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Berita Kampung Dernafi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<!-- Tambahkan class "berita-page" langsung di body -->
+<body class="berita-page">
+
+  <!-- ======= HEADER / NAVBAR ======= -->
+  <header class="navbar">
+    <h1>Kampung Dernafi</h1>
+    <ul class="nav-menu">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil Kampung</a></li>
+      <li><a href="monografi.html">Peta</a></li>
+      <li><a href="wisata.html">Wisata</a></li>
+      <li><a href="galeri.html">Galeri</a></li>
+      <!-- <li><a href="berita.html" class="active">Berita</a></li> -->
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+  </header>
+
+  <!-- ======= MAIN CONTENT ======= -->
+  <main class="content reveal">
+    <h2>Berita Terbaru</h2>
+    <p>Informasi terkini seputar kegiatan dan perkembangan Kampung Dernafi.</p>
+
+    <article class="berita-item">
+      <h3>Festival Budaya Dernafi Sukses Digelar</h3>
+      <img src="images/biak.jpg" alt="Festival Budaya Dernafi" style="width:100%; max-height:350px; object-fit:cover; border-radius:8px; margin-bottom:20px;">
+      <small>Dipublikasikan: 28 Juli 2025</small>
+      <p>
+        Festival budaya tahunan yang menampilkan tarian tradisional dan kuliner khas Kampung Dernafi sukses digelar dengan antusiasme masyarakat lokal dan wisatawan. Acara ini bertujuan melestarikan budaya dan memperkenalkan keunikan Dernafi kepada dunia luar.
+      </p>
+    </article>
+
+    <article class="berita-item">
+      <h3>Program Bersih Kampung: Gotong Royong Mingguan</h3>
+      <img src="images/biak.jpg" alt="Program Bersih Kampung" style="width:100%; max-height:350px; object-fit:cover; border-radius:8px; margin-bottom:20px;">
+      <small>Dipublikasikan: 21 Juli 2025</small>
+      <p>
+        Masyarakat Kampung Dernafi rutin mengadakan kegiatan bersih kampung setiap minggu. Program ini merupakan bagian dari inisiatif menjaga kebersihan lingkungan dan mempererat hubungan antarwarga.
+      </p>
+    </article>
+
+    <article class="berita-item">
+      <h3>Pembangunan Jalan Menuju Pantai Dernafi Dipercepat</h3>
+      <img src="images/biak.jpg" alt="Pembangunan Jalan Dernafi" style="width:100%; max-height:350px; object-fit:cover; border-radius:8px; margin-bottom:20px;">
+      <small>Dipublikasikan: 15 Juli 2025</small>
+      <p>
+        Pemerintah daerah Biak Numfor mulai mempercepat pembangunan akses jalan menuju Pantai Dernafi untuk mendukung sektor pariwisata. Pembangunan ini diharapkan selesai sebelum akhir tahun.
+      </p>
+    </article>
+  </main>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    &copy; 2025 Kampung Paray. Semua Hak Dilindungi.
+  </footer>
+
+
+<!-- Animations by ChatGPT: fade-in navigation + scroll reveal -->
+<script>
+(function() {
+  // Add scroll-reveal to common text elements for natural appearance
+  var selector = 'h1,h2,h3,h4,h5,h6,p,li,blockquote,figcaption,.card-title,.card-text';
+  document.querySelectorAll(selector).forEach(function(el){
+    if(!el.classList.contains('scroll-reveal')) el.classList.add('scroll-reveal');
+  });
+
+  // IntersectionObserver for scroll reveal
+  var observer = new IntersectionObserver(function(entries, obs){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.scroll-reveal').forEach(function(el){ observer.observe(el); });
+
+  // Fade-out on internal link navigation
+  function isInternal(a){
+    try { return a.host === window.location.host; } catch(e){ return false; }
+  }
+
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a');
+    if(!a) return;
+    var href = a.getAttribute('href');
+    if(!href || href[0] === '#' || a.target === '_blank' || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+    if(!isInternal(a)) return;
+    e.preventDefault();
+    document.body.classList.add('fade-out');
+    setTimeout(function(){ window.location.href = href; }, 300);
+  }, true);
+
+  // Handle back/forward cache so page fades in correctly
+  window.addEventListener('pageshow', function(e){
+    if(e.persisted){ document.body.classList.remove('fade-out'); }
+  });
+})();
+</script>
+
+</body>
+</html>
